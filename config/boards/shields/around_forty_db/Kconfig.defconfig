@@ -1,0 +1,22 @@
+if SHIELD_AROUND_FORTY_DB_RIGHT
+
+config ZMK_KEYBOARD_NAME
+    string
+    default "AroundFortyDB_R"
+
+config ZMK_SPLIT
+    default y
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+
+endif
+
+if SHIELD_AROUND_FORTY_DB_LEFT
+config ZMK_KEYBOARD_NAME
+    default "AroundFortyDB_L"
+
+config ZMK_SPLIT
+    default y
+
+endif
