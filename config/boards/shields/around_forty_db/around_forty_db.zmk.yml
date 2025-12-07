@@ -1,0 +1,8 @@
+file_format: "1"
+id: AroundForty-DB
+name: AroundForty-DB
+type: shield
+url: https://github.com/razilyis/zmk-config-AroundForty-DB
+requires: [seeeduino_xiao_ble]
+features:
+  - keys
