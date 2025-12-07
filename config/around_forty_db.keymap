@@ -74,10 +74,10 @@
 
         Win-Function_Layer {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&kp LC(A)  &kp LC(X)  &kp LC(C)  &kp LC(V)  &trans  &trans  &trans  &trans  &trans  &trans
+&trans     &trans     &trans     &trans     &trans  &trans  &trans  &trans  &trans  &trans
+&trans     &trans     &trans     &trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans     &trans     &trans     &trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
 
