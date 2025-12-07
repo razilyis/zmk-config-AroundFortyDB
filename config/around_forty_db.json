@@ -1,6 +1,6 @@
 {
-  "id": "AroundForty-TB",
-  "name": "AroundForty-TB",
+  "id": "AroundForty-DB",
+  "name": "AroundForty-DB",
   "layouts": {
     "default_layout": {
       "name": "default_layout",
@@ -23,7 +23,7 @@
         { "row": 1, "col":  3, "x":  3, "y": 1 },
         { "row": 1, "col":  4, "x":  4, "y": 1 },
         
-        { "row": 1, "col":  5, "x":  8, "y": 1 },
+        { "row": 1, "col":  6, "x":  8, "y": 1 },
         { "row": 1, "col":  7, "x":  9, "y": 1 },
         { "row": 1, "col":  8, "x": 10, "y": 1},
         { "row": 1, "col":  9, "x": 11, "y": 1 },
