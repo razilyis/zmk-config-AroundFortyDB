@@ -74,10 +74,10 @@
 
         Win-Function_Layer {
             bindings = <
-&kp LC(A)  &kp LC(X)  &kp LC(C)  &kp LC(V)  &trans  &trans  &trans  &trans  &trans  &trans
-&trans     &trans     &trans     &trans     &trans  &trans  &trans  &trans  &trans  &trans
-&trans     &trans     &trans     &trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans     &trans     &trans     &trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&kp LC(A)       &kp LC(X)     &kp LC(C)    &kp LC(V)  &kp LC(F)  &kp LESS_THAN  &kp GREATER_THAN       &kp CARET          &kp PERCENT           &kp DOLLAR
+&kp TAB         &kp LEFT_ALT  &kp LS(TAB)  &mkp MB1   &mkp MB2   &kp AMPERSAND  &kp RIGHT_PARENTHESIS  &kp AT_SIGN        &kp LEFT_PARENTHESIS  &kp DOUBLE_QUOTES
+&kp LEFT_SHIFT  &trans        &trans       &trans     &mkp MB3   &trans         &kp LEFT_BRACKET       &kp RIGHT_BRACKET  &kp EXCLAMATION       &kp QUESTION       &kp SINGLE_QUOTE
+&kp LCTRL       &trans        &trans       &trans     &trans     &trans         &trans                 &trans             &kp BACKSPACE         &kp ENTER          &kp HASH
             >;
         };
 
