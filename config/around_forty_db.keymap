@@ -74,10 +74,10 @@
 
         Mac-Default_layer {
             bindings = <
-&kp Q             &kp W     &kp E     &kp R                 &kp T        &kp Y             &kp U  &kp I        &kp O          &kp P
-&kp A             &kp S     &kp D     &kp F                 &kp G        &kp H             &kp J  &kp K        &kp L          &kp MINUS
-&mt LEFT_SHIFT Z  &kp X     &kp C     &kp V                 &kp B        &kp LANGUAGE_1    &kp N  &kp M        &kp COMMA      &kp DOT      &mt RIGHT_SHIFT SLASH
-&kp LCTRL         &kp LGUI  &kp LALT  &mt LSHFT LANGUAGE_1  &lt 3 SPACE  &lt 7 LANGUAGE_2  &mo 8  &kp AT_SIGN  &kp BACKSPACE  &lt 5 ENTER  &kp DEL
+&kp Q             &kp W         &kp E         &kp R                 &kp T        &kp Y             &kp U  &kp I        &kp O          &kp P
+&kp A             &kp S         &kp D         &kp F                 &kp G        &kp H             &kp J  &kp K        &kp L          &kp MINUS
+&mt LEFT_SHIFT Z  &kp X         &kp C         &kp V                 &kp B        &kp LANGUAGE_1    &kp N  &kp M        &kp COMMA      &kp DOT      &mt RIGHT_SHIFT SLASH
+&kp LCTRL         &kp LEFT_ALT  &kp LEFT_GUI  &mt LSHFT LANGUAGE_1  &lt 3 SPACE  &lt 7 LANGUAGE_2  &mo 8  &kp AT_SIGN  &kp BACKSPACE  &lt 5 ENTER  &kp DEL
             >;
         };
 
