@@ -1,4 +1,5 @@
 #include "around_forty_db.dtsi"
+#include <dt-bindings/zmk/input_transform.h>
 
 &kscan0 {
     col-gpios
