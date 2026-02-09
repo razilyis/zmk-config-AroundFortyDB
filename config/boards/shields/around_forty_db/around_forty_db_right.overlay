@@ -50,6 +50,8 @@
 &trackball_listener_R {
     status = "okay";
     device = <&trackball_R>;
+    input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)>,
+                       <&zip_xy_scaler 1 1>;
 };
 
 &spi0 {
