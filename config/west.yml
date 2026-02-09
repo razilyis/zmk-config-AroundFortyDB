@@ -13,17 +13,17 @@ manifest:
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: v0.3
+      revision: main
       import: app/west.yml
     - name: zmk-pmw3610-driver
       remote: badjeff
-      revision: zmk-0.3
+      revision: main
     - name: zmk-rgbled-widget
       remote: caksoylar
       revision: main
     - name: prospector-zmk-module
       remote: prospector
-      revision: v2.0.0
+      revision: main
       path: modules/prospector-zmk-module
   self:
     path: config
