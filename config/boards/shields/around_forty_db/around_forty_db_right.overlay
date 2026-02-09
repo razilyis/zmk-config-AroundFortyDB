@@ -48,7 +48,7 @@
     status = "okay";
     device = <&trackball_R>;
     input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_Y_INVERT)>,
-                       <&zip_xy_scaler 1 16>;
+                       <&zip_xy_scaler 1 1>;
 };
 
 &spi0 {
