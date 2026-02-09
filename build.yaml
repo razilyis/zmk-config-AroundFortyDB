@@ -1,8 +1,8 @@
 include:
-  - board: xiao_ble
+  - board: seeeduino_xiao_ble
     shield: around_forty_db_right rgbled_adapter
     snippet: studio-rpc-usb-uart
-  - board: xiao_ble
+  - board: seeeduino_xiao_ble
     shield: around_forty_db_left rgbled_adapter
-  - board: xiao_ble
+  - board: seeeduino_xiao_ble
     shield: settings_reset
