@@ -34,6 +34,14 @@
     device = <&trackball_L>;
 };
 
+&trackball_listener_L {
+    status = "okay";
+    input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_X_INVERT)>,
+                       <&zip_xy_scaler 1 16>,
+                       <&zip_scroll_scaler 1 5>,
+                       <&zip_xy_to_scroll_mapper>;
+};
+
 &spi0 {
     status = "okay";
     compatible = "nordic,nrf-spim";
@@ -50,9 +58,6 @@
         irq-gpios = <&gpio0 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
         cpi = <400>;
         invert-x;
-        evt-type = <INPUT_EV_REL>;
-        x-input-code = <INPUT_REL_Y>;
-        y-input-code = <INPUT_REL_X>;
         force-awake;
     };
 };
