@@ -63,7 +63,7 @@
     keymap {
         compatible = "zmk,keymap";
 
-        Win-Default_layer {
+        Win-Base {
             bindings = <
 &kp Q             &kp W     &kp E     &kp R                 &kp T        &kp Y             &kp U  &kp I        &kp O          &kp P
 &kp A             &kp S     &kp D     &kp F                 &kp G        &kp H             &kp J  &kp K        &kp L          &kp MINUS
@@ -72,7 +72,7 @@
             >;
         };
 
-        Mac-Default_layer {
+        Mac-Base {
             bindings = <
 &kp Q             &kp W         &kp E         &kp R                 &kp T        &kp Y             &kp U  &kp I        &kp O          &kp P
 &kp A             &kp S         &kp D         &kp F                 &kp G        &kp H             &kp J  &kp K        &kp L          &kp MINUS
@@ -81,7 +81,7 @@
             >;
         };
 
-        Win-Function_Layer {
+        Win-Fnc {
             bindings = <
 &kp LC(A)       &kp LC(X)     &kp LC(C)    &kp LC(V)  &kp LC(F)  &kp LESS_THAN         &kp GREATER_THAN       &kp CARET          &kp PERCENT      &kp DOLLAR
 &kp TAB         &kp LEFT_ALT  &kp LS(TAB)  &mkp MB1   &mkp MB2   &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp AT_SIGN        &kp AMPERSAND    &kp DOUBLE_QUOTES
@@ -90,7 +90,7 @@
             >;
         };
 
-        Mac-Function_Layer {
+        Mac-Fnc {
             bindings = <
 &kp LG(A)       &kp LG(X)     &kp LG(C)    &kp LG(V)  &kp LG(F)  &kp LESS_THAN         &kp GREATER_THAN       &kp CARET          &kp PERCENT      &kp DOLLAR
 &kp TAB         &kp LEFT_GUI  &kp LS(TAB)  &mkp MB1   &mkp MB2   &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp AT_SIGN        &kp AMPERSAND    &kp DOUBLE_QUOTES
@@ -99,7 +99,7 @@
             >;
         };
 
-        Win-Common_Layer {
+        Win-Common {
             bindings = <
 &kp ESC    &trans        &trans       &kp LG(UP_ARROW)    &trans               &kp LC(W)        &kp LA(LEFT_ARROW)  &mkp MB3        &kp LA(RIGHT_ARROW)  &kp HOME
 &kp TAB    &kp LEFT_ALT  &kp LS(TAB)  &kp LG(LEFT_ARROW)  &kp LG(RIGHT_ARROW)  &kp LC(PAGE_UP)  &mkp MB1            &kp UP_ARROW    &mkp MB2             &kp PAGE_UP
@@ -108,7 +108,7 @@
             >;
         };
 
-        Mac-Common_Layer {
+        Mac-Common {
             bindings = <
 &kp ESC    &trans        &trans       &kp LC(UP_ARROW)    &kp LG(UP_ARROW)     &kp LG(W)    &kp LG(LEFT_ARROW)  &mkp MB3        &kp LG(RIGHT_ARROW)  &kp HOME
 &kp TAB    &kp LEFT_GUI  &kp LS(TAB)  &kp LC(LEFT_ARROW)  &kp LC(RIGHT_ARROW)  &kp LC(TAB)  &mkp MB1            &kp UP_ARROW    &mkp MB2             &kp PAGE_UP
@@ -117,7 +117,7 @@
             >;
         };
 
-        Win-Num_Layer {
+        Win-Num {
             bindings = <
 &kp F1   &kp F2   &kp F3  &kp F4  &kp F5   &kp PLUS   &kp MINUS     &kp N7       &kp N8    &kp N9
 &kp F6   &kp F7   &kp F8  &kp F9  &kp F10  &kp EQUAL  &kp COLON     &kp N4       &kp N5    &kp N6
@@ -126,7 +126,7 @@
             >;
         };
 
-        Mac-Num_Layer {
+        Mac-Num {
             bindings = <
 &kp F1   &kp F2   &kp F3  &kp F4  &kp F5   &kp PLUS   &kp MINUS     &kp N7       &kp N8    &kp N9
 &kp F6   &kp F7   &kp F8  &kp F9  &kp F10  &kp EQUAL  &kp COLON     &kp N4       &kp N5    &kp N6
@@ -135,7 +135,7 @@
             >;
         };
 
-        Setting_Layer {
+        Settings {
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2    &bt BT_SEL 3  &bt BT_SEL 4
 &trans  &trans  &trans  &trans  &trans  &trans        &trans        &trans          &trans        &trans
@@ -144,7 +144,7 @@
             >;
         };
 
-        Auto_Mouse_layer {
+        AML {
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
