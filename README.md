@@ -1,5 +1,20 @@
-# zmk-config-AroundForty_DB
+# zmk-config-AroundFortyDB
 
--Zmkfirmware v0.3に対応。
 
--Prospector Scannerに対応。
+Around Forty DBのファームウェアです。
+
+-------------------------------------------------------------------------
+mainブランチで実装済み
+-------------------------------------------------------------------------
+
+🟢Zmkfirmware v0.3に対応。
+
+🟢PMW3610のドライバを「badjeff/zmk-pmw3610-driver」に変更
+
+🟢ZMK Studioに対応
+
+🟢全角半角の切り替えマクロ：全角半角のトグルが一つのキーで可能
+
+🟡Prospector Scannerの対応はいったん見送っています　/ ※Bluetooth接続が不安定になるため
+
+以下、ご利用ガイドです。
