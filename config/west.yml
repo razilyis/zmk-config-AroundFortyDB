@@ -10,20 +10,20 @@ manifest:
       url-base: https://github.com/caksoylar
     - name: prospector
       url-base: https://github.com/t-ogura
-  projects:
+ projects:
     - name: zmk
       remote: zmkfirmware
-      revision: main
+      revision: v0.3.0
       import: app/west.yml
     - name: zmk-pmw3610-driver
       remote: badjeff
-      revision: main
+      revision: zmk-0.3
     - name: zmk-rgbled-widget
       remote: caksoylar
       revision: main
     - name: prospector-zmk-module
       remote: prospector
-      revision: main
+      revision: v2.0.0
       path: modules/prospector-zmk-module
   self:
     path: config
