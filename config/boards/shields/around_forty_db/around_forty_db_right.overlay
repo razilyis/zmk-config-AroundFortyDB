@@ -67,7 +67,7 @@
         input-processors = 
             <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)>,
             <&zip_xy_to_scroll_mapper &scroll_runtime_input_processor>,
-            <&zip_scroll_scaler 1 4>; // 1/4倍（AAA の 45 は遅すぎた可能性）
+            <&zip_scroll_scaler 1 1>; // 1/1倍（感度向上）
     };
 
     // 縦専用スクロールレイヤー（Layer 7）
@@ -77,7 +77,7 @@
             <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)>,
             <&zip_x_scaler_zero 0 1>,
             <&zip_xy_to_scroll_mapper &scroll_runtime_input_processor>,
-            <&zip_scroll_scaler 1 4>;
+            <&zip_scroll_scaler 1 1>;
     };
 
     // スローカーソルレイヤー（Layer 2, 3）
