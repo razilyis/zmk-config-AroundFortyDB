@@ -42,15 +42,51 @@
     };
 };
 
+/ {
+    /* X軸の移動量を強制的に0にするプロセッサ（垂直スクロール限定モード用） */
+    zip_x_scaler_zero: zip_x_scaler_zero {
+        compatible = "zmk,input-processor-scaler";
+        #input-processor-cells = <2>;
+        type = <INPUT_EV_REL>;
+        codes = <INPUT_REL_X>;
+    };
+};
+
 &trackball_listener_R {
     status = "okay";
     device = <&trackball_R>;
     
-    // DYA Studio ランタイムプロセッサ
+    // 通常モード: DYA Studio ランタイムプロセッサ
     input-processors = 
         <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)>,
         <&zip_xy_scaler 1 1>,
         <&mouse_runtime_input_processor>;
+
+    // スクロールレイヤー（Layer 6）
+    scroll-layer {
+        layers = <6>;
+        input-processors = 
+            <&zip_xy_to_scroll_mapper &scroll_runtime_input_processor>,
+            <&zip_scroll_scaler 1 45>;
+    };
+
+    // 縦専用スクロールレイヤー（Layer 7）
+    v-scroll-layer {
+        layers = <7>;
+        input-processors = 
+            <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)>,
+            <&zip_x_scaler_zero 0 1>,
+            <&zip_xy_to_scroll_mapper &scroll_runtime_input_processor>,
+            <&zip_scroll_scaler 1 45>;
+    };
+
+    // スローカーソルレイヤー（Layer 2, 3）
+    slow-cursor-layer {
+        layers = <2 3>;
+        input-processors = 
+            <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)>,
+            <&zip_xy_scaler 1 2>;
+    };
 };
 
 &trackball_listener_L {
