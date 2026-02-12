@@ -10,6 +10,8 @@ manifest:
       url-base: https://github.com/badjeff
     - name: caksoylar
       url-base: https://github.com/caksoylar
+    - name: zettaface
+      url-base: https://github.com/zettaface
   projects:
     - name: zmk
       remote: cormoran
@@ -32,6 +34,9 @@ manifest:
       revision: zmk-0.3
     - name: zmk-rgbled-widget
       remote: caksoylar
+      revision: main
+    - name: zmk-input-processor-keybind
+      remote: zettaface
       revision: main
   self:
     path: config
