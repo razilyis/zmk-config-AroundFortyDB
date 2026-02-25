@@ -58,26 +58,26 @@
     // 通常モード: DYA Studio ランタイムプロセッサ
     input-processors = 
         <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)>,
-        <&zip_xy_scaler 4 3>,
+        <&zip_xy_scaler 2 3>,
         <&mouse_runtime_input_processor>;
 
     // スクロールレイヤー（Layer 6）
     scroll-layer {
         layers = <6>;
         input-processors = 
-            <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)>,
+            <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>,
             <&zip_xy_to_scroll_mapper &scroll_runtime_input_processor>,
-            <&zip_scroll_scaler 1 1>; // 1/1倍（感度向上）
+            <&zip_scroll_scaler 7 8>; // 600 CPI * 0.875 = 525 (元の 300 CPI に対して 1.75倍)
     };
 
     // 縦専用スクロールレイヤー（Layer 7）
     v-scroll-layer {
         layers = <7>;
         input-processors = 
-            <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)>,
+            <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>,
             <&zip_x_scaler_zero 0 1>,
             <&zip_xy_to_scroll_mapper &scroll_runtime_input_processor>,
-            <&zip_scroll_scaler 1 1>;
+            <&zip_scroll_scaler 7 8>;
     };
 
     // スローカーソルレイヤー（Layer 2, 3）
@@ -85,7 +85,7 @@
         layers = <2 3>;
         input-processors = 
             <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)>,
-            <&zip_xy_scaler 1 2>,
+            <&zip_xy_scaler 1 4>,
             <&mouse_runtime_input_processor>; // スローカーソル時も DYA 設定を活かす
     };
 };
@@ -95,7 +95,7 @@
     
     // 左手トラックボールはスクロール用（DYA Studio ランタイムプロセッサ経由）
     input-processors = 
-        <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>,
+        <&zip_xy_transform (0)>,
         <&zip_xy_scaler 1 1>, // 1/1
         <&zip_xy_to_scroll_mapper &scroll_runtime_input_processor>;
 };
@@ -114,7 +114,7 @@
         reg = <0>;
         spi-max-frequency = <2000000>;
         irq-gpios = <&gpio0 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-        cpi = <300>;
+        cpi = <600>;
         evt-type = <INPUT_EV_REL>;
         x-input-code = <INPUT_REL_X>;
         y-input-code = <INPUT_REL_Y>;
