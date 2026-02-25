@@ -58,7 +58,7 @@
     // 通常モード: DYA Studio ランタイムプロセッサ
     input-processors = 
         <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)>,
-        <&zip_xy_scaler 1 1>,
+        <&zip_xy_scaler 4 3>,
         <&mouse_runtime_input_processor>;
 
     // スクロールレイヤー（Layer 6）
@@ -114,7 +114,7 @@
         reg = <0>;
         spi-max-frequency = <2000000>;
         irq-gpios = <&gpio0 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-        cpi = <400>;
+        cpi = <300>;
         evt-type = <INPUT_EV_REL>;
         x-input-code = <INPUT_REL_X>;
         y-input-code = <INPUT_REL_Y>;
