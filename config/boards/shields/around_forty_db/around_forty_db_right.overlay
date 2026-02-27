@@ -47,6 +47,16 @@
                        <&zip_xy_to_scroll_mapper>;
 };
 
+/ {
+    /* X軸の移動量を強制的に0にするプロセッサ（垂直スクロール限定モード用） */
+    zip_x_scaler_zero: zip_x_scaler_zero {
+        compatible = "zmk,input-processor-scaler";
+        #input-processor-cells = <2>;
+        type = <INPUT_EV_REL>;
+        codes = <INPUT_REL_X>;
+    };
+};
+
 &trackball_listener_R {
     status = "okay";
     device = <&trackball_R>;
@@ -63,13 +73,23 @@
                            <&zip_xy_scaler 1 4>;
     };
 
-    // 縦専用スクロールレイヤー (Layer 7)
-    // dev-main から移植: X軸を無効化し、スクロールへ変換
-    v-scroll-layer {
-        layers = <6 7>;
+    // 通常スクロールレイヤー (Layer 6)
+    // AAA から移植: 全方向スクロール
+    scroll-layer {
+        layers = <6>;
         input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)>,
                            <&zip_xy_to_scroll_mapper>,
-                           <&zip_scroll_scaler 1 1>;
+                           <&zip_scroll_scaler 1 48>;
+    };
+
+    // 縦専用スクロールレイヤー (Layer 7)
+    // AAA から移植: X軸を無効化し、垂直スクロールへ変換
+    v-scroll-layer {
+        layers = <7>;
+        input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)>,
+                           <&zip_x_scaler_zero 0 1>,
+                           <&zip_xy_to_scroll_mapper>,
+                           <&zip_scroll_scaler 1 48>;
     };
 };
 
