@@ -14,8 +14,8 @@ manifest:
       revision: v0.3.0
       import: app/west.yml
     - name: zmk-pmw3610-driver
-      remote: badjeff
-      revision: zmk-0.3
+      remote: razilyis
+      revision: dev-v0.3_against-runaway
     - name: zmk-rgbled-widget
       remote: caksoylar
       revision: v0.3-branch
