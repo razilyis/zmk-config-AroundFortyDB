@@ -68,9 +68,8 @@
     v-scroll-layer {
         layers = <6 7>;
         input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)>,
-                           <&zip_xy_scaler 0 1>,
                            <&zip_xy_to_scroll_mapper>,
-                           <&zip_scroll_scaler 1 16>;
+                           <&zip_scroll_scaler 1 1>;
     };
 };
 
