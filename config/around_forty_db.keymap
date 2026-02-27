@@ -119,10 +119,10 @@
 
         Win-Common {
             bindings = <
-&kp ESC    &trans        &trans       &kp LG(UP_ARROW)    &kp LA(UP_ARROW)     &kp LC(W)        &kp LA(LEFT_ARROW)  &mkp MB3        &kp LA(RIGHT_ARROW)  &kp HOME
-&kp TAB    &kp LEFT_ALT  &kp LS(TAB)  &kp LG(LEFT_ARROW)  &kp LG(RIGHT_ARROW)  &kp LC(PAGE_UP)  &mkp MB1            &kp UP_ARROW    &mkp MB2             &kp PAGE_UP
-&kp LSHFT  &trans        &trans       &kp LG(DOWN_ARROW)  &kp LA(DOWN_ARROW)   &kp LG(LS(S))    &kp LC(PAGE_DOWN)   &kp LEFT_ARROW  &kp DOWN_ARROW       &kp RIGHT_ARROW  &kp PAGE_DOWN
-&kp LCTRL  &trans        &trans       &trans              &trans               &trans           &trans              &kp LC(T)       &trans               &trans           &kp END
+&kp ESC    &trans              &trans               &kp LG(LC(D))           &kp LA(UP_ARROW)         &kp LC(W)        &kp LA(LEFT_ARROW)  &mkp MB3        &kp LA(RIGHT_ARROW)  &kp HOME
+&kp TAB    &kp LEFT_ALT        &kp LS(TAB)          &kp LG(LC(LEFT_ARROW))  &kp LG(LC(RIGHT_ARROW))  &kp LC(PAGE_UP)  &mkp MB1            &kp UP_ARROW    &mkp MB2             &kp PAGE_UP
+&kp LSHFT  &kp LG(LEFT_ARROW)  &kp LG(RIGHT_ARROW)  &kp LG(LC(F4))          &kp LA(DOWN_ARROW)       &kp LG(LS(S))    &kp LC(PAGE_DOWN)   &kp LEFT_ARROW  &kp DOWN_ARROW       &kp RIGHT_ARROW  &kp PAGE_DOWN
+&kp LCTRL  &trans              &trans               &trans                  &trans                   &trans           &trans              &kp LC(T)       &trans               &trans           &kp END
             >;
         };
 
