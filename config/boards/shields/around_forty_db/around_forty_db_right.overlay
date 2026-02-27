@@ -50,8 +50,28 @@
 &trackball_listener_R {
     status = "okay";
     device = <&trackball_R>;
+    
+    // 通常モード (Default)
     input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)>,
                        <&zip_xy_scaler 1 1>;
+
+    // 精密カーソルモード (Layer 2, 3)
+    // dev-main から移植: 速度を 1/4 に抑制
+    slow-cursor-layer {
+        layers = <2 3>;
+        input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)>,
+                           <&zip_xy_scaler 1 4>;
+    };
+
+    // 縦専用スクロールレイヤー (Layer 7)
+    // dev-main から移植: X軸を無効化し、スクロールへ変換
+    v-scroll-layer {
+        layers = <7>;
+        input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)>,
+                           <&zip_x_scaler_zero 0 1>,
+                           <&zip_xy_to_scroll_mapper>,
+                           <&zip_scroll_scaler 1 16>;
+    };
 };
 
 &spi0 {
