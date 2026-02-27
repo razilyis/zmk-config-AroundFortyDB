@@ -66,7 +66,7 @@
     // 縦専用スクロールレイヤー (Layer 7)
     // dev-main から移植: X軸を無効化し、スクロールへ変換
     v-scroll-layer {
-        layers = <7>;
+        layers = <6 7>;
         input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)>,
                            <&zip_xy_scaler 0 1>,
                            <&zip_xy_to_scroll_mapper>,
