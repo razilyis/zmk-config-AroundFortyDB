@@ -103,7 +103,7 @@
 &kp LC(A)       &kp LC(X)     &kp LC(C)    &kp LC(V)  &kp LC(F)  &kp LESS_THAN         &kp GREATER_THAN       &kp CARET          &kp PERCENT      &kp DOLLAR
 &kp TAB         &kp LEFT_ALT  &kp LS(TAB)  &mkp MB1   &mkp MB2   &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp AT_SIGN        &kp AMPERSAND    &kp DOUBLE_QUOTES
 &kp LEFT_SHIFT  &trans        &trans       &trans     &mkp MB3   &trans                &kp LEFT_BRACKET       &kp RIGHT_BRACKET  &kp EXCLAMATION  &kp QUESTION       &kp SINGLE_QUOTE
-&kp LCTRL       &trans        &trans       &trans     &trans     &trans                &trans                 &trans             &kp BACKSPACE    &kp ENTER          &kp HASH
+&kp LCTRL       &trans        &trans       &trans     &trans     &trans                &trans                 &kp PIPE           &kp BACKSPACE    &kp ENTER          &kp HASH
             >;
         };
 
@@ -112,7 +112,7 @@
 &kp LG(A)       &kp LG(X)     &kp LG(C)    &kp LG(V)  &kp LG(F)  &kp LESS_THAN         &kp GREATER_THAN       &kp CARET          &kp PERCENT      &kp DOLLAR
 &kp TAB         &kp LEFT_GUI  &kp LS(TAB)  &mkp MB1   &mkp MB2   &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp AT_SIGN        &kp AMPERSAND    &kp DOUBLE_QUOTES
 &kp LEFT_SHIFT  &trans        &trans       &trans     &mkp MB3   &trans                &kp LEFT_BRACKET       &kp RIGHT_BRACKET  &kp EXCLAMATION  &kp QUESTION       &kp SINGLE_QUOTE
-&kp LCTRL       &trans        &trans       &trans     &trans     &trans                &trans                 &trans             &kp BACKSPACE    &kp ENTER          &kp HASH
+&kp LCTRL       &trans        &trans       &trans     &trans     &trans                &trans                 &kp PIPE           &kp BACKSPACE    &kp ENTER          &kp HASH
             >;
         };
 
@@ -127,10 +127,10 @@
 
         Mac-Common {
             bindings = <
-&kp ESC    &trans        &trans       &kp LC(UP_ARROW)    &kp LG(UP_ARROW)     &kp LG(W)             &kp LG(LEFT_ARROW)  &mkp MB3        &kp LG(RIGHT_ARROW)  &kp HOME
-&kp TAB    &kp LEFT_GUI  &kp LS(TAB)  &kp LC(LEFT_ARROW)  &kp LC(RIGHT_ARROW)  &kp LC(TAB)           &mkp MB1            &kp UP_ARROW    &mkp MB2             &kp PAGE_UP
-&kp LSHFT  &trans        &trans       &kp LC(DOWN_ARROW)  &kp LG(DOWN_ARROW)   &kp LG(LS(NUMBER_4))  &kp LS(LC(TAB))     &kp LEFT_ARROW  &kp DOWN_ARROW       &kp RIGHT_ARROW  &kp PAGE_DOWN
-&kp LCTRL  &trans        &trans       &trans              &trans               &trans                &trans              &kp LG(T)       &trans               &trans           &kp END
+&kp ESC    &trans        &kp LC(LG(F))  &kp LC(UP_ARROW)    &kp LG(UP_ARROW)     &kp LG(W)             &kp LG(LEFT_ARROW)  &mkp MB3        &kp LG(RIGHT_ARROW)  &kp HOME
+&kp TAB    &kp LEFT_GUI  &kp LS(TAB)    &kp LC(LEFT_ARROW)  &kp LC(RIGHT_ARROW)  &kp LC(TAB)           &mkp MB1            &kp UP_ARROW    &mkp MB2             &kp PAGE_UP
+&kp LSHFT  &trans        &trans         &kp LC(DOWN_ARROW)  &kp LG(DOWN_ARROW)   &kp LG(LS(NUMBER_4))  &kp LS(LC(TAB))     &kp LEFT_ARROW  &kp DOWN_ARROW       &kp RIGHT_ARROW  &kp PAGE_DOWN
+&kp LCTRL  &trans        &trans         &trans              &trans               &trans                &trans              &kp LG(T)       &trans               &trans           &kp END
             >;
         };
 
