@@ -1,4 +1,5 @@
 #include "around_forty_db.dtsi"
+#include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/input_transform.h>
 #include <input/processors.dtsi>
@@ -49,6 +50,19 @@
         type = <INPUT_EV_REL>;
         codes = <INPUT_REL_X>;
     };
+
+    zip_keybind_arrows: zip_keybind_arrows {
+        compatible = "zmk,input-processor-keybind";
+        #input-processor-cells = <0>;
+        bindings =
+            <&kp RIGHT_ARROW>,
+            <&kp LEFT_ARROW>,
+            <&kp UP_ARROW>,
+            <&kp DOWN_ARROW>;
+        tick = <10>;
+        wait-ms = <5>;
+        tap-ms = <5>;
+    };
 };
 
 &trackball_listener_R {
@@ -65,7 +79,7 @@
     scroll-layer {
         layers = <6>;
         input-processors = 
-            <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>,
+            <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>,
             <&zip_xy_to_scroll_mapper &scroll_runtime_input_processor>,
             <&zip_scroll_scaler 7 8>; // 600 CPI * 0.875 = 525 (元の 300 CPI に対して 1.75倍)
     };
@@ -74,7 +88,7 @@
     v-scroll-layer {
         layers = <7>;
         input-processors = 
-            <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>,
+            <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>,
             <&zip_x_scaler_zero 0 1>,
             <&zip_xy_to_scroll_mapper &scroll_runtime_input_processor>,
             <&zip_scroll_scaler 7 8>;
@@ -87,6 +101,14 @@
             <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)>,
             <&zip_xy_scaler 1 4>,
             <&mouse_runtime_input_processor>; // スローカーソル時も DYA 設定を活かす
+    };
+
+    // 矢印キーレイヤー（Layer 10）
+    arrows {
+        layers = <10>;
+        input-processors =
+            <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)>,
+            <&zip_keybind_arrows>;
     };
 };
 
