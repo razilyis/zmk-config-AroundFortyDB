@@ -31,3 +31,14 @@
   - shield: `around_forty_db_right rgbled_adapter` / `around_forty_db_left rgbled_adapter`
   - West依存取得はreusable workflow内で実行。
   - `zmk-module-runtime-input-processor` は、ZMK v0.3互換かつローカル検証済みの `8103d0618856a099369f86e93b462ee987cf159a` に固定。
+  - その他のcormoranモジュールもローカル検証済みコミットに固定し、`main`更新によるZMK v0.3 API不整合を防止。
+
+### ZMK Keymap EditorへのBehavior公開
+
+- **目的**: Westモジュール内の定義を直接読まないKeymap Editorでも、カスタムBehaviorを選択可能にする。
+- **変更内容**:
+  - `PMW3610 Inertia Toggle` をkeymap内に定義し、慣性スクロールON/OFF Behaviorを公開。
+  - 既存のセンサー回転Behaviorに `SCROLL_UP_DOWN` ラベルを追加し、スクロール方向Behaviorを公開。
+- **影響範囲**:
+  - `config/around_forty_db.keymap` のBehaviorメタデータのみ。
+  - 既存のキー配置および実行時動作は変更なし。
