@@ -30,3 +30,4 @@
   - board: `seeeduino_xiao_ble`
   - shield: `around_forty_db_right rgbled_adapter` / `around_forty_db_left rgbled_adapter`
   - West依存取得はreusable workflow内で実行。
+  - `zmk-module-runtime-input-processor` は、ZMK v0.3互換かつローカル検証済みの `8103d0618856a099369f86e93b462ee987cf159a` に固定。
