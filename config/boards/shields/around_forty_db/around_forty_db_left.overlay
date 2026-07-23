@@ -58,6 +58,7 @@
         x-input-code = <INPUT_REL_X>;
         y-input-code = <INPUT_REL_Y>;
         inertial-scroll;
+        vertical-scroll-uses-x-axis;
         inertial-scroll-gain-pct = <250>;
         inertial-scroll-decay-pct = <99>;
         inertial-scroll-interval-ms = <10>;
