@@ -65,6 +65,12 @@
             display-name = "PMW3610 Inertia Toggle";
         };
 
+        pmw3610_scroll_direction_toggle: pmw3610_scroll_direction_toggle {
+            compatible = "zmk,behavior-pmw3610-scroll-direction-toggle";
+            #binding-cells = <0>;
+            display-name = "PMW3610 Vertical Scroll Direction Toggle";
+        };
+
         lt_to_layer_0: lt_to_layer_0 {
             compatible = "zmk,behavior-hold-tap";
             label = "LAYER_TAP_TO_0";

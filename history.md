@@ -42,3 +42,17 @@
 - **影響範囲**:
   - `config/around_forty_db.keymap` のBehaviorメタデータのみ。
   - 既存のキー配置および実行時動作は変更なし。
+
+### 縦スクロール方向トグルと高解像度スクロール
+
+- **目的**: 縦スクロールの正転・逆転をキーで切り替え、対応するmacOS / Windowsホストで慣性スクロールをより滑らかにする。
+- **変更内容**:
+  - `PMW3610 Vertical Scroll Direction Toggle` をKeymap Editorへ公開。
+  - 右Centralで `CONFIG_ZMK_POINTING_SMOOTH_SCROLLING=y` を有効化し、対応ホストが設定するHID Resolution Multiplierを使用。
+  - `config/west.yml` のPMW3610依存を、方向トグル実装済みの `59971c289f3d512fb19b37dd22b58569c84009bb` に更新。
+- **影響範囲**:
+  - board: `seeeduino_xiao_ble`
+  - shield: `around_forty_db_right` / `around_forty_db_left`
+  - split: BehaviorはGlobalとして右Centralと左Peripheralの両方へ配送。
+  - レイヤー: 左は全スクロール入力、右は `inertial-scroll-layers = <6 7>` のみ方向反転。
+  - 既存のCPI、XY変換、慣性ゲイン・減衰・周期は変更なし。
