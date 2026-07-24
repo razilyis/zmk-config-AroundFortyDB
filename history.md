@@ -92,3 +92,20 @@
   - 左手Peripheralの縦スクロールと慣性スクロール。
   - 右手Centralは従来どおり生のY軸を反転。
   - CPI、BLEおよびメモリー設定は変更なし。
+
+### dev-main-v2 PMW3610安全性・縦横スクロール更新
+
+- **目的**: 既存`dev-main`を保全し、PMW3610 v2で暴走・フリーズ耐性、片側センサー互換性、縦横スクロール制御を検証。
+- **変更内容**:
+  - `dev-main-v2`を`dev-main`から分岐。
+  - `zmk-pmw3610-driver`をv2コミット`edb0ce6357b5ec26a7b1eb1b362deb14209f1a59`へ固定。
+  - Keymap Editor向けに`PMW3610 Horizontal Scroll Direction Toggle`を追加。
+  - 慣性ON/OFF、縦方向反転、横方向反転をGlobal Behaviorとして左右へ配送。
+  - 慣性更新を100Hz（10ms）から125Hz（8ms）へ変更し、減衰率を99.20%へ高精度化。
+- **左右構成**:
+  - 左手Peripheralは全レイヤーのスクロールで慣性を使用。
+  - 右手Centralはスクロールレイヤー6・7で慣性を使用。
+  - 左手は生X軸を縦、右手は生Y軸を縦として方向反転。
+- **影響範囲**:
+  - 通常スクロールと慣性スクロール。
+  - BLE設定、CPI、XY変換、通常キー入力は変更なし。

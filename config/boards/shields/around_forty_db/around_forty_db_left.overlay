@@ -61,7 +61,8 @@
         vertical-scroll-uses-x-axis;
         inertial-scroll-gain-pct = <250>;
         inertial-scroll-decay-pct = <99>;
-        inertial-scroll-interval-ms = <10>;
+        inertial-scroll-decay-basis-points = <9920>;
+        inertial-scroll-interval-ms = <8>;
         inertial-scroll-threshold = <4>;
         motion-threshold = <0>;
         force-awake;
