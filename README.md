@@ -1,28 +1,38 @@
 # zmk-config-AroundFortyDB
 
-
 Around Forty DBのファームウェアです。
 
--------------------------------------------------------------------------
-mainブランチで実装済み
--------------------------------------------------------------------------
+## 対応構成
 
-🟢Zmkfirmware v0.3に対応。
+- ZMK Firmware v0.3
+- board: `seeeduino_xiao_ble`
+- 右手Central: `around_forty_db_right rgbled_adapter`
+- 左手Peripheral: `around_forty_db_left rgbled_adapter`
+- ZMK Studio（右手USB接続時）
 
-🟢PMW3610のドライバを「badjeff/zmk-pmw3610-driver」に変更
+## トラックボール
 
-🟢ZMK Studioに対応
+左右にPMW3610を搭載し、`razilyis/zmk-pmw3610-driver`の
+`Dev-v0.3_inertial-scroll`ブランチをWestで取得します。
 
-🟢全角半角の切り替えマクロ：全角半角のトグルが一つのキーで可能
+- 左右スクロールの慣性スクロール
+- 慣性スクロールのON/OFF
+- 縦・横スクロール方向の反転
+- 右手の低速カーソル安定化
+- 入力集中時のキー取りこぼし・連続入力を抑えるキュー調整
+- 右手のスクロールレイヤー6・7で慣性を有効化
+- 左手のスクロールは全レイヤーで慣性を有効化
 
-🟡Prospector Scannerの対応はいったん見送っています　/ ※Bluetooth接続が不安定になるため
+## その他
 
--------------------------------------------------------------------------
-以下はmainブランチには未実装の開発版（dev-main）のみの機能です
--------------------------------------------------------------------------
+- Windows / macOS用のキーマップ
+- 全角・半角切り替えマクロ
+- Slow Cursorレイヤー
+- 2種類のScrollレイヤー
+- DYA Studio対応
 
-🟢Slow Curor layer：カーソル速度を一時的に遅くて精密操作をしやすくします
+Prospector ScannerはBluetooth接続が不安定になるため、現在は有効化していません。
 
-🟢2種類のScroll Layer：上下左右のスクロールができるレイヤーと、縦限定スクロールができるレイヤーがあります
+## ビルド
 
-🟡DYA Studioに対応
+GitHub Actionsでは`build.yaml`を使用し、右手・左手・設定リセット用ファームウェアを生成します。

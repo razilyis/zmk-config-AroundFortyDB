@@ -135,3 +135,26 @@
 - **影響範囲**:
   - 右手Centralのスクロールレイヤー6・7と右手慣性スクロール。
   - 左手スクロール、カーソル、CPI、BLE、通常キー入力は変更なし。
+
+## 2026-07-25
+
+### dev-mainへのdev-main-v2統合準備
+
+- **目的**: 実機検証済みの`dev-main-v2`を正規の`dev-main`へ統合し、PMW3610依存を正規ブランチ名へ一本化する。
+- **変更内容**:
+  - `config/west.yml`のPMW3610参照を`Dev-v0.3_inertial-scroll`へ変更。
+  - READMEを左右PMW3610、慣性スクロール、縦横方向トグル、低速安定化、入力キュー調整の現行構成に更新。
+- **CI構成**:
+  - workflow: `.github/workflows/build.yml`
+  - reusable workflow: `zmkfirmware/zmk/.github/workflows/build-user-config.yml@v0.3.0`
+  - board: `seeeduino_xiao_ble`
+  - shield: `around_forty_db_right rgbled_adapter` / `around_forty_db_left rgbled_adapter` / `settings_reset`
+  - West依存取得はreusable workflow内で実行。
+- **確認内容**:
+  - West 1.5.0でマニフェストを検証し、68プロジェクトを解決。
+  - 左右ファームウェアをクリーン再ビルド。
+  - 左手: FLASH 23.90%、RAM 26.00%。
+  - 右手: FLASH 37.18%、RAM 43.82%。
+- **影響範囲**:
+  - 右手Centralと左手Peripheralのビルド依存。
+  - レイヤー、キー配置、BLE、メモリー設定、センサー配線は変更なし。
