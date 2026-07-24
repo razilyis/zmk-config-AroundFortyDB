@@ -148,6 +148,9 @@
         inertial-scroll-interval-ms = <8>;
         inertial-scroll-threshold = <4>;
         motion-threshold = <0>;
+        low-speed-stabilizer;
+        low-speed-stabilizer-threshold = <1>;
+        low-speed-stabilizer-timeout-ms = <30>;
         force-awake;
     };
 };
