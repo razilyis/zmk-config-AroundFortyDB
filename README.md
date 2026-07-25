@@ -4,7 +4,7 @@ Around Forty DBのファームウェアです。
 
 ## 対応構成
 
-- ZMK Firmware v0.3
+- ZMK Firmware v0.3.0
 - board: `seeeduino_xiao_ble`
 - 右手Central: `around_forty_db_right rgbled_adapter`
 - 左手Peripheral: `around_forty_db_left rgbled_adapter`
@@ -29,7 +29,7 @@ Around Forty DBのファームウェアです。
 - 全角・半角切り替えマクロ
 - Slow Cursorレイヤー
 - 2種類のScrollレイヤー
-- DYA Studio対応
+- ZMK Studio対応
 
 Prospector ScannerはBluetooth接続が不安定になるため、現在は有効化していません。
 
