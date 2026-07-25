@@ -70,7 +70,7 @@
     // 通常モード
     input-processors =
         <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)>,
-        <&zip_xy_scaler 2 3>;
+        <&zip_xy_scaler 1 1>;
 
     // スクロールレイヤー（Layer 6）
     scroll-layer {
@@ -78,7 +78,7 @@
         input-processors =
             <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>,
             <&zip_xy_to_scroll_mapper>,
-            <&zip_scroll_scaler 4 5>; // 7/8から4/5へ変更し、スクロール感度を約8.6%低減
+            <&zip_scroll_scaler 1 48>;
     };
 
     // 縦専用スクロールレイヤー（Layer 7）
@@ -88,7 +88,7 @@
             <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>,
             <&zip_x_scaler_zero 0 1>,
             <&zip_xy_to_scroll_mapper>,
-            <&zip_scroll_scaler 4 5>;
+            <&zip_scroll_scaler 1 48>;
     };
 
     // スローカーソルレイヤー（Layer 2, 3）
@@ -96,7 +96,7 @@
         layers = <2 3>;
         input-processors =
             <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)>,
-            <&zip_xy_scaler 1 4>;
+            <&zip_xy_scaler 1 2>;
     };
 
     // 矢印キーレイヤー（Layer 10）
@@ -114,8 +114,8 @@
     // 左手トラックボールはスクロール用
     input-processors =
         <&zip_xy_transform (0)>,
-        <&zip_xy_scaler 1 1>, // 1/1
-        <&zip_xy_to_scroll_mapper>;
+        <&zip_xy_to_scroll_mapper>,
+        <&zip_scroll_scaler 1 24>;
 };
 
 &spi0 {
