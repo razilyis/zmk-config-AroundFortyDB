@@ -147,8 +147,8 @@
         Mac-Common {
             bindings = <
 &kp ESC    &trans        &kp LC(LG(F))  &kp LC(UP_ARROW)    &kp LG(UP_ARROW)     &kp LG(W)             &kp LG(LEFT_ARROW)  &mkp MB3        &kp LG(RIGHT_ARROW)  &kp HOME
-&kp TAB    &kp LEFT_GUI  &kp LS(TAB)    &kp LC(LEFT_ARROW)  &kp LC(RIGHT_ARROW)  &kp LC(TAB)           &mkp MB1            &kp UP_ARROW    &mkp MB2             &kp PAGE_UP
-&kp LSHFT  &trans        &trans         &kp LC(DOWN_ARROW)  &kp LG(DOWN_ARROW)   &kp LG(LS(NUMBER_4))  &kp LS(LC(TAB))     &kp LEFT_ARROW  &kp DOWN_ARROW       &kp RIGHT_ARROW  &kp PAGE_DOWN
+&kp TAB    &kp LEFT_GUI  &kp LS(TAB)    &kp LC(LEFT_ARROW)  &kp LC(RIGHT_ARROW)  &kp LC(LS(TAB))       &mkp MB1            &kp UP_ARROW    &mkp MB2             &kp PAGE_UP
+&kp LSHFT  &trans        &trans         &kp LC(DOWN_ARROW)  &kp LG(DOWN_ARROW)   &kp LG(LS(NUMBER_4))  &kp LC(TAB)         &kp LEFT_ARROW  &kp DOWN_ARROW       &kp RIGHT_ARROW  &kp PAGE_DOWN
 &kp LCTRL  &trans        &trans         &trans              &trans               &trans                &trans              &kp LG(T)       &trans               &trans           &kp END
             >;
         };
