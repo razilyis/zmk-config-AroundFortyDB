@@ -1,5 +1,21 @@
 # 開発履歴
 
+## 2026-07-31
+
+### dev-main PMW3610安全性修正版の固定
+
+- **目的**: `dev-main`のGitHub Actionsで、慣性スクロール機能を維持しながら入力輻輳・未完フレーム・IRQ異常への安全性修正を再現可能にする。
+- **変更内容**:
+  - `config/west.yml`の`zmk-pmw3610-driver`を、`Dev-v0.3_inertial-scroll`で検証したコミット`fe219c7eb267050fff6743f00b51c7cf6b029839`へ固定。
+  - PMW3610処理の専用work queue化、入力再送の時間・移動量制限、未完X/Yフレームの回復、IRQ再確認を適用。
+- **影響範囲**:
+  - board: `seeeduino_xiao_ble`
+  - shield: `around_forty_db_right` / `around_forty_db_left`
+  - split: 右Central / 左Peripheral。
+  - 右は通常カーソルとレイヤー6・7の慣性スクロール、左はスクロール動作。
+  - `motion-threshold`、CPI、XY変換、キー配置、SPI/IRQ配線、BLE接続数は変更なし。
+  - 専用work queueにより片側約1.8KBのRAMを追加使用。
+
 ## 2026-07-24
 
 ### 左右トラックボールの微操作改善
