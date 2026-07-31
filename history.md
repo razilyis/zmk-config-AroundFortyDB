@@ -2,6 +2,18 @@
 
 ## 2026-07-31
 
+### dev-main PMW3610 SPI・蓄積デルタ対策版への更新
+
+- **目的**: 左右PMW3610のSPI設定失敗と、異常値・微小入力後に古い移動量が遅れて出力される可能性を抑える。
+- **変更内容**:
+  - `config/west.yml`の`zmk-pmw3610-driver`をコミット`e3d60ed54b928dff07fbdc9dbf67cf40f35d33b6`へ更新。
+  - PMW3610のCS保持時間と書き込み間隔を確保し、異常サンプル時の蓄積デルタ破棄を取り込む。
+- **影響範囲**:
+  - board: `seeeduino_xiao_ble`
+  - shield: `around_forty_db_right` / `around_forty_db_left`
+  - split: 右Central / 左Peripheral。
+  - レイヤー、キー配置、CPI、XY変換、スクロール感度、SPI/IRQ配線、BLE設定は変更なし。
+
 ### dev-main PMW3610暴走対策版の再ビルド
 
 - **目的**: `Dev-v0.3_inertial-scroll`の最新暴走対策をDBのGitHub Actionsビルドへ反映する。
