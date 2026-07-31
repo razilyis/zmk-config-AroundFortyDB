@@ -2,6 +2,19 @@
 
 ## 2026-07-31
 
+### dev-main PMW3610微小振動フィルタの有効化
+
+- **目的**: 打鍵・クリック時の微小振動をPMW3610のカーソル・スクロール入力として扱わないようにする。
+- **変更内容**:
+  - 左右PMW3610の`motion-threshold`を`0`から`1`へ変更。
+  - X/Yの絶対値が両方とも1以下のサンプルを破棄。
+- **影響範囲**:
+  - board: `seeeduino_xiao_ble`
+  - shield: `around_forty_db_right` / `around_forty_db_left`
+  - split: 右Central / 左Peripheral。
+  - 左右トラックボールを使用する全レイヤー。
+  - CPI、XY変換、キー配置、SPI/IRQ、BLE設定は変更なし。
+
 ### dev-main PMW3610安全性修正版の固定
 
 - **目的**: `dev-main`のGitHub Actionsで、慣性スクロール機能を維持しながら入力輻輳・未完フレーム・IRQ異常への安全性修正を再現可能にする。
