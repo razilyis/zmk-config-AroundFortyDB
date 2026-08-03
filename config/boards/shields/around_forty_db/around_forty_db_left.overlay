@@ -65,7 +65,7 @@
         inertial-scroll-threshold = <4>;
         inertial-scroll-max-velocity = <28>;
         inertial-scroll-max-duration-ms = <1600>;
-        motion-threshold = <1>;
+        motion-threshold = <0>;
         low-speed-stabilizer;
         low-speed-stabilizer-threshold = <1>;
         low-speed-stabilizer-timeout-ms = <30>;
