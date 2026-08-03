@@ -78,7 +78,7 @@
         input-processors =
             <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>,
             <&zip_xy_to_scroll_mapper>,
-            <&zip_scroll_scaler 1 12>;
+            <&zip_scroll_scaler 1 24>;
     };
 
     // 縦専用スクロールレイヤー（Layer 7）
@@ -88,7 +88,7 @@
             <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>,
             <&zip_x_scaler_zero 0 1>,
             <&zip_xy_to_scroll_mapper>,
-            <&zip_scroll_scaler 1 12>;
+            <&zip_scroll_scaler 1 24>;
     };
 
     // スローカーソルレイヤー（Layer 2, 3）
@@ -115,7 +115,7 @@
     input-processors =
         <&zip_xy_transform (0)>,
         <&zip_xy_to_scroll_mapper>,
-        <&zip_scroll_scaler 1 6>;
+        <&zip_scroll_scaler 1 12>;
 };
 
 &spi0 {
