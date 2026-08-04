@@ -1,5 +1,20 @@
 # 開発履歴
 
+## 2026-08-04
+
+### BLE DFU Bootloader移行PoCを導入
+
+- `zmk-feature-ble-dfu`をWest moduleへ追加し、左右shieldで`CONFIG_ZMK_BLE_DFU=y`を有効化した。
+- `around_forty_db.keymap`で`<behaviors/ble_dfu.dtsi>`を読み込み、Adafruit nRF52 BootloaderのOTA reset type `0xA8`を発行する`&ble_dfu`を利用可能にした。
+- Keymap Editorのbehavior pickerから選択できるよう、標準`zmk,behavior-macro`の`&ble_dfu_ota` wrapperをkeymap内へ追加した。
+- Settings layerへ`&ble_dfu_ota`を1キー割り当てた。現状は押下直後に再起動し、Firmware転送や確認操作は未実装である。
+
+確認予定:
+
+- GitHub Actionsで右central、左peripheral、settings resetをbuildする。
+- Keymap Editorで`&ble_dfu_ota`がcustom macroとして表示されることを確認する。
+- 実機でUSB UF2復旧経路を確保してからOTA advertisementを確認する。
+
 ## 2026-07-31
 
 ### dev-main PMW3610 SPI・蓄積デルタ対策版への更新

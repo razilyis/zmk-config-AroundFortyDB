@@ -22,5 +22,8 @@ manifest:
     - name: zmk-input-processor-keybind
       remote: razilyis
       revision: modify
+    - name: zmk-feature-ble-dfu
+      remote: razilyis
+      revision: main
   self:
     path: config
