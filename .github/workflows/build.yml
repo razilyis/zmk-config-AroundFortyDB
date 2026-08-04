@@ -4,3 +4,68 @@ on: [push, pull_request, workflow_dispatch]
 jobs:
   build:
     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@v0.3.0
+
+  package-ble-dfu:
+    name: Package BLE DFU firmware
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout configuration
+        uses: actions/checkout@v4
+
+      - name: Download ZMK firmware artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: firmware
+          path: firmware
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Adafruit Legacy DFU packaging tool
+        run: python -m pip install --disable-pip-version-check adafruit-nrfutil==0.5.3.post16
+
+      - name: Locate left and right UF2 files
+        id: uf2
+        shell: bash
+        run: |
+          set -euo pipefail
+          left="$(find firmware -maxdepth 1 -type f -name 'around_forty_db_left*-zmk.uf2' -print -quit)"
+          right="$(find firmware -maxdepth 1 -type f -name 'around_forty_db_right*-zmk.uf2' -print -quit)"
+          test -n "$left"
+          test -n "$right"
+          echo "left=$left" >> "$GITHUB_OUTPUT"
+          echo "right=$right" >> "$GITHUB_OUTPUT"
+
+      - name: Convert UF2 files to address-preserving Intel HEX
+        run: |
+          python scripts/uf2_to_ihex.py "${{ steps.uf2.outputs.left }}" package/around_forty_db_left.hex
+          python scripts/uf2_to_ihex.py "${{ steps.uf2.outputs.right }}" package/around_forty_db_right.hex
+
+      - name: Generate Adafruit Legacy DFU packages
+        run: |
+          adafruit-nrfutil dfu genpkg --dev-type 0x0052 --sd-req 0xFFFE --application-version "${{ github.run_number }}" --application package/around_forty_db_left.hex package/around_forty_db_left.dfu.zip
+          adafruit-nrfutil dfu genpkg --dev-type 0x0052 --sd-req 0xFFFE --application-version "${{ github.run_number }}" --application package/around_forty_db_right.hex package/around_forty_db_right.dfu.zip
+
+      - name: Add recovery UF2 files and manifest
+        shell: bash
+        run: |
+          cp firmware/*.uf2 package/
+          python scripts/create_ble_dfu_manifest.py \
+            --directory package \
+            --repository "${{ github.repository }}" \
+            --branch "${{ github.ref_name }}" \
+            --run-id "${{ github.run_id }}" \
+            --run-number "${{ github.run_number }}" \
+            --commit "${{ github.sha }}"
+
+      - name: Upload BLE DFU artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: firmware-ble-dfu
+          path: package/
+          if-no-files-found: error

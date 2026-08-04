@@ -40,6 +40,8 @@ Around Forty DBのファームウェアです。
 
 Keymap Editorでは外部moduleの独自behaviorを直接認識できないため、keymap内の標準macro wrapper `&ble_dfu_ota`をbehavior pickerから選択します。
 
+GitHub Actionsは通常の`firmware` Artifactに加えて、`firmware-ble-dfu` Artifactを生成します。後者には左右のAdafruit Legacy DFU ZIP、出所・対象side・SHA-256を記録した`firmware-manifest.json`、USB復旧用UF2が含まれます。DFU ZIPの生成確認までを実装しており、Bluetooth転送の実機確認はまだ行っていません。
+
 Prospector ScannerはBluetooth接続が不安定になるため、現在は有効化していません。
 
 ## ビルド

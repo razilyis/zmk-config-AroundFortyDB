@@ -2,6 +2,19 @@
 
 ## 2026-08-04
 
+### Adafruit Legacy DFU package生成を追加
+
+- 成功済みFirmware Artifactの左右UF2がfamily ID `0xADA52840`、application start `0x27000`であることを確認した。
+- UF2のtarget addressを保持したIntel HEXへ変換する`scripts/uf2_to_ihex.py`を追加した。family ID、block順序、重複data、application start、flash範囲を検証し、不正な入力を拒否する。
+- GitHub Actionsへ`package-ble-dfu` jobを追加し、公式`adafruit-nrfutil 0.5.3.post16`から左右別のNordic Legacy DFU ZIPを生成するようにした。device typeは`0x0052`、SoftDevice requirementは互換値`0xFFFE`、application versionはActions run numberを使用する。
+- `firmware-ble-dfu` Artifactへ左右DFU ZIP、従来のUSB復旧用UF2、repository／branch／run／commit／side／SHA-256／sizeを含む`firmware-manifest.json`を格納するようにした。既存`firmware` Artifactは変更していない。
+
+確認結果:
+
+- run `30883794498`の実Artifactから左191,488 byte、右274,944 byteのapplication imageを復元した。
+- 固定版`adafruit-nrfutil`で左192,373 byte、右275,835 byteのDFU ZIPをローカル生成した。各ZIPにapplication BIN、14 byteのinit packet DAT、DFU version 0.5の`manifest.json`が含まれ、device type `82`、SoftDevice requirement `65534`、CRC16が設定されることを確認した。
+- Bluetooth経由の実機転送は未確認である。
+
 ### BLE DFU Bootloader移行PoCを導入
 
 - `zmk-feature-ble-dfu`をWest moduleへ追加し、左右shieldで`CONFIG_ZMK_BLE_DFU=y`を有効化した。
