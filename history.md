@@ -9,11 +9,11 @@
 - Keymap Editorのbehavior pickerから選択できるよう、標準`zmk,behavior-macro`の`&ble_dfu_ota` wrapperをkeymap内へ追加した。
 - Settings layerへ`&ble_dfu_ota`を1キー割り当てた。現状は押下直後に再起動し、Firmware転送や確認操作は未実装である。
 
-確認予定:
+確認結果:
 
-- GitHub Actionsで右central、左peripheral、settings resetをbuildする。
-- Keymap Editorで`&ble_dfu_ota`がcustom macroとして表示されることを確認する。
-- 実機でUSB UF2復旧経路を確保してからOTA advertisementを確認する。
+- 初回GitHub Actions run `30883503833`はmoduleのCMake include path不足により左右buildが失敗した。module側へ`zephyr_include_directories(include)`を追加した。
+- 修正後run `30883794498`で右central、左peripheral、settings reset、artifact mergeの全jobが成功した。
+- ユーザーがKeymap Editorで`&ble_dfu_ota`がCustom macro「BLE_DFU_OTA」として表示されることを実画面確認した。実機のUSB UF2復旧経路とOTA advertisementは未確認である。
 
 ## 2026-07-31
 
