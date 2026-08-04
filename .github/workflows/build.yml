@@ -43,13 +43,14 @@ jobs:
 
       - name: Convert UF2 files to address-preserving Intel HEX
         run: |
-          python scripts/uf2_to_ihex.py "${{ steps.uf2.outputs.left }}" package/around_forty_db_left.hex
-          python scripts/uf2_to_ihex.py "${{ steps.uf2.outputs.right }}" package/around_forty_db_right.hex
+          python scripts/uf2_to_ihex.py "${{ steps.uf2.outputs.left }}" intermediate/around_forty_db_left.hex
+          python scripts/uf2_to_ihex.py "${{ steps.uf2.outputs.right }}" intermediate/around_forty_db_right.hex
 
       - name: Generate Adafruit Legacy DFU packages
         run: |
-          adafruit-nrfutil dfu genpkg --dev-type 0x0052 --sd-req 0xFFFE --application-version "${{ github.run_number }}" --application package/around_forty_db_left.hex package/around_forty_db_left.dfu.zip
-          adafruit-nrfutil dfu genpkg --dev-type 0x0052 --sd-req 0xFFFE --application-version "${{ github.run_number }}" --application package/around_forty_db_right.hex package/around_forty_db_right.dfu.zip
+          mkdir -p package
+          adafruit-nrfutil dfu genpkg --dev-type 0x0052 --sd-req 0xFFFE --application-version "${{ github.run_number }}" --application intermediate/around_forty_db_left.hex package/around_forty_db_left.dfu.zip
+          adafruit-nrfutil dfu genpkg --dev-type 0x0052 --sd-req 0xFFFE --application-version "${{ github.run_number }}" --application intermediate/around_forty_db_right.hex package/around_forty_db_right.dfu.zip
 
       - name: Add recovery UF2 files and manifest
         shell: bash
