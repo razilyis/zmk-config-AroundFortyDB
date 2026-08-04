@@ -14,6 +14,7 @@
 - run `30883794498`の実Artifactから左191,488 byte、右274,944 byteのapplication imageを復元した。
 - 固定版`adafruit-nrfutil`で左192,373 byte、右275,835 byteのDFU ZIPをローカル生成した。各ZIPにapplication BIN、14 byteのinit packet DAT、DFU version 0.5の`manifest.json`が含まれ、device type `82`、SoftDevice requirement `65534`、CRC16が設定されることを確認した。
 - 初回Actions run `30885876479`は全jobが成功し、`firmware-ble-dfu` Artifactの左右ZIP、init packet、manifestのsize／SHA-256一致を確認した。中間Intel HEXもArtifactへ含まれていたため、最終Artifactには含めないよう出力directoryを分離した。
+- 最終Actions run `30886171430`も全jobが成功した。`firmware-ble-dfu` Artifactは左右DFU ZIP、左右／settings resetのUSB復旧用UF2、`firmware-manifest.json`の6fileだけとなり、左右ZIPのsize／SHA-256一致を再確認した。
 - Bluetooth経由の実機転送は未確認である。
 
 ### BLE DFU Bootloader移行PoCを導入
