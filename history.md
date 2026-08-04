@@ -13,7 +13,8 @@
 
 - 初回GitHub Actions run `30883503833`はmoduleのCMake include path不足により左右buildが失敗した。module側へ`zephyr_include_directories(include)`を追加した。
 - 修正後run `30883794498`で右central、左peripheral、settings reset、artifact mergeの全jobが成功した。
-- ユーザーがKeymap Editorで`&ble_dfu_ota`がCustom macro「BLE_DFU_OTA」として表示されることを実画面確認した。実機のUSB UF2復旧経路とOTA advertisementは未確認である。
+- ユーザーがKeymap Editorで`&ble_dfu_ota`がCustom macro「BLE_DFU_OTA」として表示されることを実画面確認した。
+- 右central／左peripheralへFirmwareを書き込み、`&ble_dfu_ota`押下で通常接続が切断されることを確認した。WindowsのBLE scanで`AdaDFU`とNordic Legacy DFU service UUID `00001530-1212-efde-1523-785feabcd123`を検出し、reset 1回で通常Firmwareへ復帰した。DFU package転送は未確認である。
 
 ## 2026-07-31
 
