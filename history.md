@@ -11,7 +11,11 @@
 確認結果:
 
 - keymapの左右対称位置とwrapper macro参照を静的確認。
-- GitHub Actions buildと実機書き込みはこの記録時点で未実施。
+- commit `f4b30360f2daa797c856dcaf438ebf525f83d46e`をauthor `RaZiLy`で`feature-ble-dfu`へpushした。
+- GitHub Actions run `30919448407`で右central、左peripheral、settings reset、Artifact統合、Legacy DFU package生成の全jobが成功した。
+- `firmware-manifest.json`のcommit、run、side、size、SHA-256を確認し、左右DFU ZIPと復旧UF2のapplication payload完全一致に成功した。
+- 新右UF2はSHA-256 `66975a378dfa8ff055772922844aa206c0e4b71453213a4c9b6f7fbdfaf164d3`へ変化し、左UF2は従来と同じ`087d72e2d493f768a53ee2211c457ef9a33e1be2f45ff16ce40d5ed30aa159cc`だった。keymapはcentral側に反映され、event source localityで左peripheralへ実行要求を配送する構成のため、左OTAキーを有効にするには新右central Firmwareを先に更新する。
+- 実機書き込みはこの記録時点で未実施。
 
 ### Adafruit Legacy DFU package生成を追加
 

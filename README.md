@@ -38,6 +38,8 @@ Around Forty DBのファームウェアです。
 
 `&ble_dfu_ota`を押すと、現在は確認画面なしでAdafruit nRF52 BootloaderのOTA modeへ再起動します。USB UF2で復旧できる状態を確認してから使用してください。右centralは独立Windows PoCからLegacy DFU全転送に3回成功し、USB未接続のバッテリー駆動で手動resetなしの自動復帰を確認済みです。左peripheralのOTA mode移行とBLE DFU転送は未確認です。
 
+左側のOTAキー配置はcentral側keymapで判定され、event source localityにより左peripheralへ実行要求が配送されます。そのため、左OTAキーを有効にするにはこのkeymapを含む右central Firmwareを先に更新します。
+
 Keymap Editorでは外部moduleの独自behaviorを直接認識できないため、keymap内の標準macro wrapper `&ble_dfu_ota`をbehavior pickerから選択します。
 
 GitHub Actionsは通常の`firmware` Artifactに加えて、`firmware-ble-dfu` Artifactを生成します。後者には左右のAdafruit Legacy DFU ZIP、出所・対象side・SHA-256を記録した`firmware-manifest.json`、USB復旧用UF2が含まれます。右centralのBluetooth転送は実機確認済み、左peripheralは未確認です。
