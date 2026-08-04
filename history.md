@@ -2,6 +2,17 @@
 
 ## 2026-08-04
 
+### 左peripheral用BLE DFU OTAキーを追加
+
+- Settings layer 3段目の左から2番目へ`&ble_dfu_ota`を追加し、既存の右から2番目と左右対称にした。
+- moduleの`&ble_dfu`は`BEHAVIOR_LOCALITY_EVENT_SOURCE`であり、左側の物理キーは左peripheral、右側の物理キーは右centralをそれぞれOTA modeへ再起動する想定。
+- 右centralはLegacy DFU全転送に3回成功し、USB未接続時の自動復帰を確認済み。左peripheralのOTA mode移行とBLE DFU転送は、今回のFirmware build後に実機検証する。
+
+確認結果:
+
+- keymapの左右対称位置とwrapper macro参照を静的確認。
+- GitHub Actions buildと実機書き込みはこの記録時点で未実施。
+
 ### Adafruit Legacy DFU package生成を追加
 
 - 成功済みFirmware Artifactの左右UF2がfamily ID `0xADA52840`、application start `0x27000`であることを確認した。
