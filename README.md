@@ -1,38 +1,42 @@
-# zmk-config-AroundFortyDB
+# zmk-config-AroundFortyDB (zmk-v0.4_inertial-scroll)
 
-Around Forty DBのファームウェアです。
+Around Forty DB の ZMK v0.4（Zephyr 4.1）対応＋**慣性スクロール・制御Behavior・標準LiPoバッテリー** 搭載版ファームウェアです。
 
-## 対応構成
+本ブランチは、**ZMK v0.4 (Zephyr 4.1)** 環境において `razilyis/zmk-pmw3610-driver`（`Dev-v0.4_inertial-scroll` ブランチ）を採用し、AroundFortyDB 固有の左右デュアルトラックボール構造（独自のピン配置・配線・センサー向き）および標準 LiPo バッテリー電源管理（XIAO BLE オンボード充電）を維持した最新統合開発ブランチです。
 
-- ZMK Firmware v0.4 (Zephyr 4.1 追従)
-- board: `xiao_ble//zmk`
-- 右手Central: `around_forty_db_right rgbled_adapter`
-- 左手Peripheral: `around_forty_db_left rgbled_adapter`
-- ZMK Studio（右手USB接続時）
+---
 
-## トラックボール
+## 主な実装内容・特徴
 
-左右にPMW3610を搭載し、`razilyis/zmk-pmw3610-driver`の
-`Dev-v0.4_inertial-scroll`ブランチをWestで取得します。
+### 🟢 慣性スクロール & 低速スタビライザー (ZMK v0.4 対応)
+- **自然な慣性スクロール**: レイヤー 6/7 でのスクロール操作時に、指を離した後も心地よい減速を伴う慣性スクロールを実行
+- **低速カーソル安定化 (`low-speed-stabilizer`)**: 微小な手振れやノイズを相殺し、精密なポインティングを実現
+- **制御Behaviorのサポート**:
+  - `&pmw3610_inertia_toggle`: 慣性スクロールの ON / OFF 切り替え
+  - `&pmw3610_scroll_direction_toggle`: 縦スクロール方向の正転 / 反転切り替え
+  - `&pmw3610_horizontal_scroll_direction_toggle`: 横スクロール方向の正転 / 反転切り替え
 
-- 左右スクロールの慣性スクロール
-- 慣性スクロールのON/OFF
-- 縦・横スクロール方向の反転
-- 右手の低速カーソル安定化
-- 入力集中時のキー取りこぼし・連続入力を抑えるキュー調整
-- 右手のスクロールレイヤー6・7で慣性を有効化
-- 左手のスクロールは全レイヤーで慣性を有効化
+### 🟢 左右デュアルトラックボール (Left & Right Trackball)
+- **右Centralトラックボール (`trackball_R`)**: 通常カーソル、Slow Cursor（Layer 2, 3）、通常スクロール（Layer 6）、縦限定スクロール（Layer 7）、矢印キー操作（Layer 10）
+- **左Peripheralトラックボール (`trackball_L`)**: Central側で受け取りスクロール変換処理を実行
+- **DB固有トランスフォーム & ピンアサイン**: AroundFortyDB 独自の基板配線・センサー取り付け角度・SPIピン配置をそのまま維持
 
-## その他
+### 🟢 標準 LiPo バッテリー電源管理 (Standard LiPo Battery)
+- **Standard LiPo + Seeed Studio XIAO BLE オンボード充電**:
+  - `CONFIG_ZMK_BATTERY_REPORTING=y`
+  - `CONFIG_BT_BAS=y`
 
-- Windows / macOS用のキーマップ
-- 全角・半角切り替えマクロ
-- Slow Cursorレイヤー
-- 2種類のScrollレイヤー
-- ZMK Studio対応
+### 🟢 ZMK v0.4 (Zephyr 4.1) への移行
+- **最新 Zephyr 4.1 対応**: ZMK main（Zephyr 4.1 系統）を pin し、新規格に適合
+- **新ボード定義形式への対応**: ボード指定を `xiao_ble//zmk`、インターコネクト ID を `seeed_xiao` に更新
+- **Devicetree での NFC ピン GPIO 化**: Zephyr 4.1 での Kconfig 廃止に伴い、P0.09 / P0.10 の GPIO 再利用指定を DTS（`&uicr`）へ移行
+- **外部モジュールの Zephyr 4.1 追従**:
+  - `razilyis/zmk-pmw3610-driver` (`Dev-v0.4_inertial-scroll`): Zephyr 4.1 上流との衝突回避のため `pixart,pmw3610-alt` / `CONFIG_PMW3610_ALT_*` に完全追従
 
-Prospector ScannerはBluetooth接続が不安定になるため、現在は有効化していません。
+---
 
-## ビルド
+## クレジット・謝辞 (Credits & Respect)
 
-GitHub Actionsでは`build.yaml`を使用し、右手・左手・設定リセット用ファームウェアを生成します。
+- **[badjeff](https://github.com/badjeff)**
+  - ZMK 用 PMW3610 ドライバおよび慣性スクロールエンジンの開発者。
+
