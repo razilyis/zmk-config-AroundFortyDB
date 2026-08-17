@@ -112,3 +112,8 @@ aroundFortydb_physical_layout: aroundFortydb_physical_layout {
                 ;
     };
 };
+
+/* Zephyr 4.1 で CONFIG_NFCT_PINS_AS_GPIOS は削除され、devicetree 指定に変更された */
+&uicr {
+    nfct-pins-as-gpios;
+};

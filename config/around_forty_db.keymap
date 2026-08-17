@@ -6,6 +6,11 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
 
+/* PMW3610 制御 behavior のインクルード */
+#include <behaviors/pmw3610_inertia_toggle.dtsi>
+#include <behaviors/pmw3610_scroll_direction_toggle.dtsi>
+#include <behaviors/pmw3610_horizontal_scroll_direction_toggle.dtsi>
+
 &mt {
     flavor = "balanced";
     quick-tap-ms = <0>;

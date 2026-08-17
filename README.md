@@ -4,8 +4,8 @@ Around Forty DBのファームウェアです。
 
 ## 対応構成
 
-- ZMK Firmware v0.3.0
-- board: `seeeduino_xiao_ble`
+- ZMK Firmware v0.4 (Zephyr 4.1 追従)
+- board: `xiao_ble//zmk`
 - 右手Central: `around_forty_db_right rgbled_adapter`
 - 左手Peripheral: `around_forty_db_left rgbled_adapter`
 - ZMK Studio（右手USB接続時）
@@ -13,7 +13,7 @@ Around Forty DBのファームウェアです。
 ## トラックボール
 
 左右にPMW3610を搭載し、`razilyis/zmk-pmw3610-driver`の
-`Dev-v0.3_inertial-scroll`ブランチをWestで取得します。
+`Dev-v0.4_inertial-scroll`ブランチをWestで取得します。
 
 - 左右スクロールの慣性スクロール
 - 慣性スクロールのON/OFF

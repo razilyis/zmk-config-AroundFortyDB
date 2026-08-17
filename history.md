@@ -1,5 +1,19 @@
 # 開発履歴
 
+## 2026-08-18
+### 実施内容: `zmk-v0.4_inertial-scroll` ブランチの作成 (ZMK v0.4 / Zephyr 4.1 & PMW3610 Inertial Scroll)
+- **目的**: AroundForty-DB にて ZMK v0.4 (Zephyr 4.1) および `razilyis/zmk-pmw3610-driver` (`Dev-v0.4_inertial-scroll`) への対応を実施。
+- **ブランチ**: `zmk-v0.4_inertial-scroll` (ベース: `zmk-v0.3`)
+- **主な変更点**:
+  - `config/west.yml`: `zmk` を `6e2ef41e` (ZMK main / Zephyr 4.1)、`zmk-pmw3610-driver` を `Dev-v0.4_inertial-scroll`、`zmk-rgbled-widget` を `e6b4677` に更新。
+  - `build.yaml`: ボード ID を `xiao_ble//zmk` に更新、明示的な `artifact-name`（`around_forty_db_right`, `around_forty_db_left`, `settings_reset`）を追加。
+  - `around_forty_db.zmk.yml`: `requires: [seeed_xiao]` に更新。
+  - `around_forty_db.dtsi`: `&uicr { nfct-pins-as-gpios; };` を追加。
+  - `around_forty_db_left.conf` / `around_forty_db_right.conf`: `CONFIG_NFCT_PINS_AS_GPIOS=y` を削除、`CONFIG_BT_HCI_TX_STACK_SIZE_WITH_PROMPT=y` を追加、Kconfig シンボルを `CONFIG_PMW3610_ALT_*` へ更新。
+  - **維持事項**: 標準 LiPo 電池電源管理 (`CONFIG_ZMK_BATTERY_REPORTING=y`, `CONFIG_BT_BAS=y`)、AroundFortyDB 固有の左右トラックボール（ピン配置・センサー向き・CPI・トランスフォーム）設定。
+  - `around_forty_db_left.overlay` / `around_forty_db_right.overlay`: PMW3610 compatible を `pixart,pmw3610-alt` へ更新。
+  - `around_forty_db.keymap`: PMW3610 制御 behavior dtsi インクルードを追加。
+
 ## 2026-07-31
 
 ### dev-main PMW3610 SPI・蓄積デルタ対策版への更新
